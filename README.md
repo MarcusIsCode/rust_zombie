@@ -90,3 +90,5 @@ game made with rust where you can kill zombies
   - Wasm
   - wasm32-unkown-unkown 
 
+## assets
+[Curt](https://opengameart.org/content/zombie-rpg-sprites)
