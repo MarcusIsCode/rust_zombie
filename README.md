@@ -11,7 +11,7 @@ game made with rust where you can kill zombies
     - [x] map size walls not going outside
 
 ### player
-- [] Actions
+- [ ] Actions
   - [x] Move  W,S,A,D
   - [x] Shoot Space
   - [ ] dies from attack
