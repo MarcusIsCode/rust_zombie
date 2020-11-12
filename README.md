@@ -3,26 +3,26 @@
 ## tmp Description 
 game made with rust where you can kill zombies
 ### general
-- [ ] Design
-    - [ ] player
-    - [ ] zombie
-    - [ ] gun, gun shoot animation
-    - [ ] map color white
-    - [ ] map size walls not going outside
+- [x] Design
+    - [x] player
+    - [x] zombie
+    - [x] gun, gun shoot animation
+    - [x] map black,gray, white style
+    - [x] map size walls not going outside
 
 ### player
-- [ ] Actions
-  - [ ] Move  W,S,A,D
-  - [ ] Shoot Space
+- [] Actions
+  - [x] Move  W,S,A,D
+  - [x] Shoot Space
   - [ ] dies from attack
 
 ### Zombie
 - [ ] Actions
-  - [ ] move towards player
+  - [x] move towards player
   - [ ] attack player
-  - [ ] dies from shoot
+  - [x] dies from shoot
 
-## Improvements
+## Future improvements
 <details>
 <summary>Easy </summary>
 
@@ -86,9 +86,9 @@ game made with rust where you can kill zombies
     - create character
 </details>
 
-## Need to install
-  - Wasm
-  - wasm32-unkown-unkown 
+## Need to install to work
+[rust-getting started](https://www.rust-lang.org/learn/get-started)
+
 
 ## assets
 [Curt](https://opengameart.org/content/zombie-rpg-sprites)

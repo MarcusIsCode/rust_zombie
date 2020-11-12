@@ -1,11 +1,11 @@
 use bevy::{prelude::*, window::WindowMode};
-
+use crate::comp::static_data::WINDOW_SIZE;
 
 fn window()-> WindowDescriptor
 {
 WindowDescriptor{
-    width:500,
-    height:700,
+    width:WINDOW_SIZE.width,
+    height:WINDOW_SIZE.height,
     title:String::from("Rust Zombie"),
     vsync:true,
     resizable:false,
@@ -13,10 +13,7 @@ WindowDescriptor{
    ..Default::default()
  }
 }
-fn setup_print(){
-    println!("hello")
-}
+
 pub fn settings(){
    window();
-   setup_print();
 }

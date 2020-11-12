@@ -1,0 +1,48 @@
+// TODO clean upp
+
+use bevy::prelude::*;
+use crate::comp::{data_types::*, weapons::*,data_types_event::*,characters::*};
+
+pub fn shoot_event_spawn(
+    mut commands:Commands,
+     
+    mut materials:ResMut<Assets<ColorMaterial>>,
+    mut game_counting: ResMut<GameCounting>,
+        player:Res<Player>,
+     
+    mut shoot_listen:Local<EventReader<ShootEvent>>,
+        shoot_events:Res<Events<ShootEvent>>,
+   
+    
+    ){
+    
+
+for shoot in  shoot_listen.iter(&shoot_events){
+            if let Action::SHOOT = shoot.action{
+                if game_counting.shoots < 1{
+                    let shoot_info = Shoot{
+                                        size:shoot_size(shoot.direction),
+                                        direction:shoot.direction,
+                                        action:shoot.action,
+                                        start_point:StartSpawn(player.pos.0,player.pos.1),
+                    };  
+                 
+                  commands
+                     .spawn(SpriteComponents {  
+                                material: materials.add(Color::GREEN.into()),
+                                transform: Transform::from_translation(Vec3::new(shoot_info.start_point.0 as f32,shoot_info.start_point.1 as f32, 1.0)),
+                                sprite: Sprite::new(shoot_info.size),
+                                ..Default::default()
+                            }) .with(shoot_info)
+                               .with(Timer::from_seconds(0.2, false))
+                                ;
+                        }
+                         game_counting.shoots+=1;
+                         break;
+                }
+    
+     }
+   
+        
+    
+    }
