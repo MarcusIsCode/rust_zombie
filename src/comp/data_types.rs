@@ -1,7 +1,9 @@
 use crate::comp::characters::Health;
+use crate::static_data::*;
+use bevy::prelude::*;
+use rand::Rng;
 
-
-
+pub struct ResetButton;
 #[derive(Default,Debug,Copy, Clone)]
 pub struct Speed{
   pub velocity:i32,
@@ -13,6 +15,7 @@ pub struct GameCounting{
   pub player_hp:Health, 
 }
 pub struct GameText;
+
 impl GameCounting {
   pub fn decrees_shoots (&mut self){
     if self.shoots != 0{
@@ -24,26 +27,45 @@ impl GameCounting {
   pub fn set_text(&mut self)->String{
     let hp = self.player_hp.points.to_string();
     let score = self.kills.to_string();
-    return   format!("Health:{}   Kills:{}",hp, score);
+    return format!("Health:{}   Kills:{}",hp, score);
   }
+  
 }
 #[derive(Default,Debug,Copy, Clone)]
 pub struct StartSpawn(pub i32,pub i32);
+impl StartSpawn{
+  fn turn_vec3(&mut self)->Vec3{
+    return  Vec3::new(self.0 as f32, self.1 as f32, 1.0);
+  }
 
+  pub fn zombie_spawn_position(&mut self)->Vec3{
+    let range_x = MAP_BORDERS.max_min_x;
+    let range_y = MAP_BORDERS.max_min_y;
+    let mut rng = rand::thread_rng();
+
+    
+    self.0 = rng.gen_range(range_x.0 *-1,range_x.1) * rand_not_zero(); 
+    self.1 = rng.gen_range(range_y.0 *-1,range_y.1) * rand_not_zero(); 
+ 
+
+    return self.turn_vec3() ;
+  }
+
+}
+pub fn rand_not_zero()->i32{
+     if rand::random(){
+         return  1;
+       }else{
+         return -1;
+       }
+  }
 pub struct Map{
   pub max_min_x:(i32,i32),
   pub max_min_y:(i32,i32)
 }
 pub struct Wall;
 
-#[derive(Default)]
-pub struct SpriteSheet{
-  pub upp:u32,
-  pub down:u32,
-  pub left:u32,
-  pub right:u32,
-  pub index:u32,
-}
+
 #[derive(Debug,Copy, Clone)]
 pub enum Action {
   SHOOT,

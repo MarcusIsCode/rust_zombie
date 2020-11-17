@@ -19,7 +19,7 @@ pub fn shoot_event_spawn(
 
 for shoot in  shoot_listen.iter(&shoot_events){
             if let Action::SHOOT = shoot.action{
-                if game_counting.shoots < 1{
+                if game_counting.shoots < 10{
                     let shoot_info = Shoot{
                                         size:shoot_size(shoot.direction),
                                         direction:shoot.direction,
@@ -28,21 +28,14 @@ for shoot in  shoot_listen.iter(&shoot_events){
                     };  
                  
                   commands
-                     .spawn(SpriteComponents {  
-                                material: materials.add(Color::GREEN.into()),
-                                transform: Transform::from_translation(Vec3::new(shoot_info.start_point.0 as f32,shoot_info.start_point.1 as f32, 1.0)),
-                                sprite: Sprite::new(shoot_info.size),
-                                ..Default::default()
-                            }) .with(shoot_info)
-                               .with(Timer::from_seconds(0.2, false))
-                                ;
-                        }
+                     .spawn(shoot_info.shoot_to_sprite(materials.add(Color::GREEN.into())))
+                               .with(shoot_info)
+                               .with(Timer::from_seconds(1.0, false)) ;
+                        
                          game_counting.shoots+=1;
                          break;
                 }
     
      }
-   
-        
-    
     }
+}

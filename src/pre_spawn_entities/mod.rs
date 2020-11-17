@@ -1,11 +1,11 @@
 use bevy::prelude::*;
 pub mod player_ent;
-pub mod zombie_ent;
+
 pub mod map_ent;
 pub mod game_status;
 pub use self::{
     player_ent::*,
-    zombie_ent::*,
+  
     map_ent::*,
     game_status::*,
 };
@@ -17,9 +17,9 @@ impl Plugin for EntitiesSetup{
         app
             .add_startup_system(setup.system())
             .add_startup_system(map_setup.system())
-            .add_startup_system(player_setup.system())
-            .add_startup_system(zombie_setup.system())
+            .add_startup_system(player_setup.system())        
             .add_startup_system(game_status_text.system());
+          
     }
 }
 pub fn setup(  mut commands: Commands){

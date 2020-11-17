@@ -1,4 +1,5 @@
 use bevy::math::*;
+
 use crate::data_types::Map;
 pub const WINDOW_SIZE:Size<u32> = Size{
     width:1080,
@@ -9,7 +10,7 @@ pub const MAP_BORDERS:Map = Map{
     max_min_x:(-355, 605),
     max_min_y:(-310, 340),
 };
-
+pub const HUMANOID_SIZE:Vec2 = const_vec2!([23.0,20.0]);
 
 pub fn map_boundaries(position:(i32,i32))->(i32,i32){
     let x_borders = MAP_BORDERS.max_min_x; 
@@ -26,4 +27,4 @@ pub fn map_boundaries(position:(i32,i32))->(i32,i32){
     }
 
        
-    }
+}

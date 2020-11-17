@@ -55,8 +55,7 @@ for event in state.event_reader.iter(&keyboard_input_events) {
           Some(KeyCode::W)=>{
              
               player_new.move_action= UPP;
-               player_new.pos.1 += player.move_action.moving_with_speed(player.speed).1;
-
+              player_new.pos.1 += player.move_action.moving_with_speed(player.speed).1;
               player_new.direction =  player.move_action.direction();
              
           },

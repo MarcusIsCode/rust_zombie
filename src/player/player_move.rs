@@ -1,10 +1,7 @@
 use bevy::prelude::*;
 use crate::comp::*;
 
-//TODO! might be an issue when holding downn player and it's going to fast
-//TODO! due to 1. planing to implement timing for sprite_Sheet::walk animation which can cause a delay 
-//TODO! while  event move is still adding
-//Todo! posible solutuion  add timing in controls.rs 
+
 pub fn event_move(
       //spriteSheet with methtods for handling spritesheets
     mut sprite_index:Local<SpriteSheet4x3>,

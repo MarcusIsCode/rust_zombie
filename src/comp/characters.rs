@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use crate::data_types::{Speed,Move,StartSpawn};
+use crate::data_types::{Speed,Move};
 #[derive(Default,Debug,Copy, Clone)]
 pub struct Health{
   pub points:u32,
@@ -15,7 +15,7 @@ impl Default for Player {
   fn default()->Player{
      Player{
        name:"Player 1".to_string(),
-       speed:Speed{velocity:5},
+       speed:Speed{velocity:7},
        move_action:Move::DOWN,
        pos:(0,0),
        direction:(Move::DOWN.direction()),
@@ -34,11 +34,11 @@ pub struct Zombie{
 impl Default for Zombie {
   fn default()->Zombie{
      Zombie{
-       speed:Speed{velocity:3},
+       speed:Speed{velocity:5},
        direction:(-1,0),
        atlas_handel:Default::default(),
        atlas_loaded:false,
-       spawn_time:Timer::from_seconds(9.0, true)
+       spawn_time:Timer::from_seconds(4.0, true)
      }   
   }
 }
