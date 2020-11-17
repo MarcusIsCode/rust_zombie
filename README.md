@@ -1,7 +1,7 @@
 # rust_zombie
- made with rust
-## tmp Description 
-game made with rust where you can kill zombies
+ Zombie "game" made with rust and Bevy engin
+
+
 ### general
 - [x] Design
     - [x] player
@@ -9,6 +9,7 @@ game made with rust where you can kill zombies
     - [x] gun, gun shoot animation
     - [x] map black,gray, white style
     - [x] map size walls not going outside
+    - [ ] game interface style
 
 ### player
 - [ ] Actions
@@ -17,11 +18,15 @@ game made with rust where you can kill zombies
   - [ ] dies from attack
 
 ### Zombie
-- [ ] Actions
+- [x] Actions
   - [x] move towards player
-  - [ ] attack player
+  - [x] attack player
   - [x] dies from shoot
 
+### Game interface
+- [x] kills
+- [x] player health
+- [x] reset button
 ## Future improvements
 <details>
 <summary>Easy </summary>
@@ -86,8 +91,10 @@ game made with rust where you can kill zombies
     - create character
 </details>
 
-## Need to install to work
+## installation
+- m
 [rust-getting started](https://www.rust-lang.org/learn/get-started)
+[Bevy](https://bevyengine.org/learn/book/getting-started/setup/)
 
 
 ## assets

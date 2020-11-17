@@ -1,5 +1,6 @@
 use crate::comp::characters::*;
 use crate::data_types::Collider;
+use crate::static_data::HUMANOID_SIZE;
 use bevy::prelude::*;
 
 
@@ -7,24 +8,14 @@ use bevy::prelude::*;
 
 pub fn player_setup(
     mut commands: Commands,
-    //used to get the assets
     asset_server: Res<AssetServer>,
-    // storing the asset
-    // mut textures_assets: ResMut<Assets<Texture>>,
-    //storing Sprite sheet Asset
     mut texture_atlases: ResMut<Assets<TextureAtlas>>,
 ){
   
   
-      // loads the texture and gives it an handel that results in a uniq id
-      // in load sync it stores it in texture_assets
-     let sprite_handel =  asset_server.load("../assets/sprites/player/playerSpriteSheet.png");
-   
-    //let sprite_size = textures_assets.get(&sprite_handel).unwrap().size;
 
-     let sprite_atlas = TextureAtlas::from_grid(sprite_handel, Vec2::new(20.0,20.0), 3, 4);
-     
-     //we store it among in Assets textures
+     let sprite_handel =  asset_server.load("../assets/sprites/player/playerSpriteSheet.png");
+     let sprite_atlas = TextureAtlas::from_grid(sprite_handel,HUMANOID_SIZE, 3, 4);
      let player_texture_handel = texture_atlases.add(sprite_atlas);
              
    
@@ -45,3 +36,4 @@ pub fn player_setup(
   
      
 }
+

@@ -1,4 +1,5 @@
 mod settings;
+mod restart_game;
 mod comp;
 mod player;
 mod pre_spawn_entities;
@@ -25,7 +26,9 @@ fn main() {
        .add_plugins(DefaultPlugins)
        
        .add_plugin(EntitiesSetup)
+       .add_startup_system(zombie_setup.system())
        .add_plugin(GameSystemSetup)
+       .add_system(restart_game::button_click.system())
        .add_system(shoot_collision.system())
        .add_system(zombie_spawner.system())
        .add_system(zombie_moving.system()) 

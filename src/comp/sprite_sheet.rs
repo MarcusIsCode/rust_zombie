@@ -1,7 +1,14 @@
 use crate::comp::data_types::*;
 
 //TODO rename this SpriteSheet and make A new SpriteSheet and make a method for sprintSheet4x3
-
+#[derive(Default)]
+pub struct SpriteSheet{
+  pub upp:u32,
+  pub down:u32,
+  pub left:u32,
+  pub right:u32,
+  pub index:u32,
+}
 
 pub struct SpriteSheet4x3 {
   pub sheet: SpriteSheet,
